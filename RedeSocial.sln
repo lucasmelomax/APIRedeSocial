@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35527.113
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedeSocial.API", "RedeSocial.API\RedeSocial.API.csproj", "{70B123DC-F572-48B7-951C-D229F63F9F5F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedeSocial.Application", "RedeSocial.Application\RedeSocial.Application.csproj", "{11A5D0AA-98BE-4AC9-AC9A-5DAFF37C6C11}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedeSocial.Domain", "RedeSocial.Domain\RedeSocial.Domain.csproj", "{1EEB8C76-6CF9-4C7E-B153-E4A1CF4B1A1A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedeSocial.Infra.Data", "RedeSocial.Infra.Data\RedeSocial.Infra.Data.csproj", "{F609D68C-CCC8-4359-880B-F13EBEA83896}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedeSocial.Infra.Ioc", "RedeSocial.Infra.Ioc\RedeSocial.Infra.Ioc.csproj", "{BCB34E6A-0982-46C6-AB5B-C8E5352050C5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{70B123DC-F572-48B7-951C-D229F63F9F5F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{70B123DC-F572-48B7-951C-D229F63F9F5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{70B123DC-F572-48B7-951C-D229F63F9F5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{70B123DC-F572-48B7-951C-D229F63F9F5F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{11A5D0AA-98BE-4AC9-AC9A-5DAFF37C6C11}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11A5D0AA-98BE-4AC9-AC9A-5DAFF37C6C11}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11A5D0AA-98BE-4AC9-AC9A-5DAFF37C6C11}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11A5D0AA-98BE-4AC9-AC9A-5DAFF37C6C11}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1EEB8C76-6CF9-4C7E-B153-E4A1CF4B1A1A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1EEB8C76-6CF9-4C7E-B153-E4A1CF4B1A1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1EEB8C76-6CF9-4C7E-B153-E4A1CF4B1A1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1EEB8C76-6CF9-4C7E-B153-E4A1CF4B1A1A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F609D68C-CCC8-4359-880B-F13EBEA83896}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F609D68C-CCC8-4359-880B-F13EBEA83896}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F609D68C-CCC8-4359-880B-F13EBEA83896}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F609D68C-CCC8-4359-880B-F13EBEA83896}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BCB34E6A-0982-46C6-AB5B-C8E5352050C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BCB34E6A-0982-46C6-AB5B-C8E5352050C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BCB34E6A-0982-46C6-AB5B-C8E5352050C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BCB34E6A-0982-46C6-AB5B-C8E5352050C5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
