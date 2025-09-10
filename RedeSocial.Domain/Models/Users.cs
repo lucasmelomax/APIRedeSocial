@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace RedeSocial.Domain.Models {
     public class Users {
 
-        public int UserId { get; set; }
+        public int UsersId { get; set; }
         public bool Active { get; set; }
 
         [Required]

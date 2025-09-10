@@ -9,3 +9,15 @@ C:\Users\lucas\source\repos\RedeSocial\RedeSocial.Domain\obj\Debug\net8.0\RedeSo
 C:\Users\lucas\source\repos\RedeSocial\RedeSocial.Domain\obj\Debug\net8.0\refint\RedeSocial.Domain.dll
 C:\Users\lucas\source\repos\RedeSocial\RedeSocial.Domain\obj\Debug\net8.0\RedeSocial.Domain.pdb
 C:\Users\lucas\source\repos\RedeSocial\RedeSocial.Domain\obj\Debug\net8.0\ref\RedeSocial.Domain.dll
+C:\Users\Usuario\APIRede\APIRedeSocial\RedeSocial.Domain\bin\Debug\net8.0\RedeSocial.Domain.deps.json
+C:\Users\Usuario\APIRede\APIRedeSocial\RedeSocial.Domain\bin\Debug\net8.0\RedeSocial.Domain.dll
+C:\Users\Usuario\APIRede\APIRedeSocial\RedeSocial.Domain\bin\Debug\net8.0\RedeSocial.Domain.pdb
+C:\Users\Usuario\APIRede\APIRedeSocial\RedeSocial.Domain\obj\Debug\net8.0\RedeSocial.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Usuario\APIRede\APIRedeSocial\RedeSocial.Domain\obj\Debug\net8.0\RedeSocial.Domain.AssemblyInfoInputs.cache
+C:\Users\Usuario\APIRede\APIRedeSocial\RedeSocial.Domain\obj\Debug\net8.0\RedeSocial.Domain.AssemblyInfo.cs
+C:\Users\Usuario\APIRede\APIRedeSocial\RedeSocial.Domain\obj\Debug\net8.0\RedeSocial.Domain.csproj.CoreCompileInputs.cache
+C:\Users\Usuario\APIRede\APIRedeSocial\RedeSocial.Domain\obj\Debug\net8.0\RedeSocial.Domain.sourcelink.json
+C:\Users\Usuario\APIRede\APIRedeSocial\RedeSocial.Domain\obj\Debug\net8.0\RedeSocial.Domain.dll
+C:\Users\Usuario\APIRede\APIRedeSocial\RedeSocial.Domain\obj\Debug\net8.0\refint\RedeSocial.Domain.dll
+C:\Users\Usuario\APIRede\APIRedeSocial\RedeSocial.Domain\obj\Debug\net8.0\RedeSocial.Domain.pdb
+C:\Users\Usuario\APIRede\APIRedeSocial\RedeSocial.Domain\obj\Debug\net8.0\ref\RedeSocial.Domain.dll

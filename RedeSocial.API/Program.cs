@@ -13,11 +13,6 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddInfrastructure(builder.Configuration);
 
-//string mySqlConnection = builder.Configuration.GetConnectionString("DefaultConnection");
-//builder.Services.AddDbContext<RedeSocialContext>(options =>
-//                 options.UseMySql(mySqlConnection,
-//                 ServerVersion.AutoDetect(mySqlConnection)));
-
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

@@ -19,10 +19,9 @@ namespace RedeSocial.Infra.Data.Context {
         public DbSet<Followers>? Followers { get; set; }
         public DbSet<Comments>? Comments { get; set; }
 
-        //protected override void OnModelCreating(ModelBuilder modelBuilder) {
-        //    base.OnModelCreating(modelBuilder);
-        //    modelBuilder.ApplyConfigurationsFromAssembly(typeof(RedeSocialContext).Assembly);
-        //}
+        protected override void OnModelCreating(ModelBuilder modelBuilder) {
+            base.OnModelCreating(modelBuilder);
+        }
 
     }
 }

@@ -8,6 +8,7 @@
     ".NETCoreApp,Version=v8.0": {
       "RedeSocial.Infra.Data/1.0.0": {
         "dependencies": {
+          "Microsoft.EntityFrameworkCore": "8.0.1",
           "Microsoft.EntityFrameworkCore.Design": "8.0.1",
           "Pomelo.EntityFrameworkCore.MySql": "8.0.1",
           "RedeSocial.Domain": "1.0.0"
