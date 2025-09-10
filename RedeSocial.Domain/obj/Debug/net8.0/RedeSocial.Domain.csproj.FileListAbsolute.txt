@@ -1,0 +1,11 @@
+C:\Users\lucas\source\repos\RedeSocial\RedeSocial.Domain\bin\Debug\net8.0\RedeSocial.Domain.deps.json
+C:\Users\lucas\source\repos\RedeSocial\RedeSocial.Domain\bin\Debug\net8.0\RedeSocial.Domain.dll
+C:\Users\lucas\source\repos\RedeSocial\RedeSocial.Domain\bin\Debug\net8.0\RedeSocial.Domain.pdb
+C:\Users\lucas\source\repos\RedeSocial\RedeSocial.Domain\obj\Debug\net8.0\RedeSocial.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\lucas\source\repos\RedeSocial\RedeSocial.Domain\obj\Debug\net8.0\RedeSocial.Domain.AssemblyInfoInputs.cache
+C:\Users\lucas\source\repos\RedeSocial\RedeSocial.Domain\obj\Debug\net8.0\RedeSocial.Domain.AssemblyInfo.cs
+C:\Users\lucas\source\repos\RedeSocial\RedeSocial.Domain\obj\Debug\net8.0\RedeSocial.Domain.csproj.CoreCompileInputs.cache
+C:\Users\lucas\source\repos\RedeSocial\RedeSocial.Domain\obj\Debug\net8.0\RedeSocial.Domain.dll
+C:\Users\lucas\source\repos\RedeSocial\RedeSocial.Domain\obj\Debug\net8.0\refint\RedeSocial.Domain.dll
+C:\Users\lucas\source\repos\RedeSocial\RedeSocial.Domain\obj\Debug\net8.0\RedeSocial.Domain.pdb
+C:\Users\lucas\source\repos\RedeSocial\RedeSocial.Domain\obj\Debug\net8.0\ref\RedeSocial.Domain.dll

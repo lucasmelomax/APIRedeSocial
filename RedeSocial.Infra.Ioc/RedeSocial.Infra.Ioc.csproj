@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\RedeSocial.Application\RedeSocial.Application.csproj" />
+    <ProjectReference Include="..\RedeSocial.Domain\RedeSocial.Domain.csproj" />
+    <ProjectReference Include="..\RedeSocial.Infra.Data\RedeSocial.Infra.Data.csproj" />
+  </ItemGroup>
+
+</Project>

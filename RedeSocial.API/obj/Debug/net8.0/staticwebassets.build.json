@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "OV5tLM+rEVXKPM9xYamZa6fiyH/Z7OpHkaEklKWKwJU=",
+  "Source": "RedeSocial.API",
+  "BasePath": "_content/RedeSocial.API",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}

@@ -1,0 +1,39 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "RedeSocial.Application/1.0.0": {
+        "dependencies": {
+          "RedeSocial.Domain": "1.0.0"
+        },
+        "runtime": {
+          "RedeSocial.Application.dll": {}
+        }
+      },
+      "RedeSocial.Domain/1.0.0": {
+        "runtime": {
+          "RedeSocial.Domain.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "RedeSocial.Application/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "RedeSocial.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
