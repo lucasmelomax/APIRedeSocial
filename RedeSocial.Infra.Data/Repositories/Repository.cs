@@ -11,7 +11,7 @@ using RedeSocial.Infra.Data.Context;
 
 namespace RedeSocial.Infra.Data.Repositories
 {
-    internal class Repository<T> : IRepository<T> where T : class
+    public class Repository<T> : IRepository<T> where T : class
     {
     
         private readonly RedeSocialContext _context;

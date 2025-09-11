@@ -166,3 +166,5 @@ C:\Users\Usuario\APIRede\APIRedeSocial\RedeSocial.API\obj\Debug\net8.0\RedeSocia
 C:\Users\Usuario\APIRede\APIRedeSocial\RedeSocial.API\obj\Debug\net8.0\RedeSocial.API.genruntimeconfig.cache
 C:\Users\Usuario\APIRede\APIRedeSocial\RedeSocial.API\obj\Debug\net8.0\ref\RedeSocial.API.dll
 C:\Users\Usuario\APIRede\APIRedeSocial\RedeSocial.API\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
+C:\Users\Usuario\APIRede\APIRedeSocial\RedeSocial.API\bin\Debug\net8.0\AutoMapper.dll
+C:\Users\Usuario\APIRede\APIRedeSocial\RedeSocial.API\bin\Debug\net8.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll

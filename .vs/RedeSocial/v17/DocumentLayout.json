@@ -1,0 +1,106 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Usuario\\APIRede\\APIRedeSocial\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{F609D68C-CCC8-4359-880B-F13EBEA83896}|RedeSocial.Infra.Data\\RedeSocial.Infra.Data.csproj|c:\\users\\usuario\\apirede\\apiredesocial\\redesocial.infra.data\\repositories\\repository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F609D68C-CCC8-4359-880B-F13EBEA83896}|RedeSocial.Infra.Data\\RedeSocial.Infra.Data.csproj|solutionrelative:redesocial.infra.data\\repositories\\repository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11A5D0AA-98BE-4AC9-AC9A-5DAFF37C6C11}|RedeSocial.Application\\RedeSocial.Application.csproj|c:\\users\\usuario\\apirede\\apiredesocial\\redesocial.application\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11A5D0AA-98BE-4AC9-AC9A-5DAFF37C6C11}|RedeSocial.Application\\RedeSocial.Application.csproj|solutionrelative:redesocial.application\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11A5D0AA-98BE-4AC9-AC9A-5DAFF37C6C11}|RedeSocial.Application\\RedeSocial.Application.csproj|c:\\users\\usuario\\apirede\\apiredesocial\\redesocial.application\\interfaces\\iuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11A5D0AA-98BE-4AC9-AC9A-5DAFF37C6C11}|RedeSocial.Application\\RedeSocial.Application.csproj|solutionrelative:redesocial.application\\interfaces\\iuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1EEB8C76-6CF9-4C7E-B153-E4A1CF4B1A1A}|RedeSocial.Domain\\RedeSocial.Domain.csproj|c:\\users\\usuario\\apirede\\apiredesocial\\redesocial.domain\\interfaces\\irepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1EEB8C76-6CF9-4C7E-B153-E4A1CF4B1A1A}|RedeSocial.Domain\\RedeSocial.Domain.csproj|solutionrelative:redesocial.domain\\interfaces\\irepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BCB34E6A-0982-46C6-AB5B-C8E5352050C5}|RedeSocial.Infra.Ioc\\RedeSocial.Infra.Ioc.csproj|c:\\users\\usuario\\apirede\\apiredesocial\\redesocial.infra.ioc\\dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BCB34E6A-0982-46C6-AB5B-C8E5352050C5}|RedeSocial.Infra.Ioc\\RedeSocial.Infra.Ioc.csproj|solutionrelative:redesocial.infra.ioc\\dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Repository.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\APIRede\\APIRedeSocial\\RedeSocial.Infra.Data\\Repositories\\Repository.cs",
+              "RelativeDocumentMoniker": "RedeSocial.Infra.Data\\Repositories\\Repository.cs",
+              "ToolTip": "C:\\Users\\Usuario\\APIRede\\APIRedeSocial\\RedeSocial.Infra.Data\\Repositories\\Repository.cs",
+              "RelativeToolTip": "RedeSocial.Infra.Data\\Repositories\\Repository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACsAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-11T13:41:59.686Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "IUserService.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\APIRede\\APIRedeSocial\\RedeSocial.Application\\Interfaces\\IUserService.cs",
+              "RelativeDocumentMoniker": "RedeSocial.Application\\Interfaces\\IUserService.cs",
+              "ToolTip": "C:\\Users\\Usuario\\APIRede\\APIRedeSocial\\RedeSocial.Application\\Interfaces\\IUserService.cs",
+              "RelativeToolTip": "RedeSocial.Application\\Interfaces\\IUserService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-11T13:50:15.114Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "IRepository.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\APIRede\\APIRedeSocial\\RedeSocial.Domain\\Interfaces\\IRepository.cs",
+              "RelativeDocumentMoniker": "RedeSocial.Domain\\Interfaces\\IRepository.cs",
+              "ToolTip": "C:\\Users\\Usuario\\APIRede\\APIRedeSocial\\RedeSocial.Domain\\Interfaces\\IRepository.cs",
+              "RelativeToolTip": "RedeSocial.Domain\\Interfaces\\IRepository.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAIwA4AAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-11T13:41:40.653Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "UserService.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\APIRede\\APIRedeSocial\\RedeSocial.Application\\Services\\UserService.cs",
+              "RelativeDocumentMoniker": "RedeSocial.Application\\Services\\UserService.cs",
+              "ToolTip": "C:\\Users\\Usuario\\APIRede\\APIRedeSocial\\RedeSocial.Application\\Services\\UserService.cs",
+              "RelativeToolTip": "RedeSocial.Application\\Services\\UserService.cs",
+              "ViewState": "AgIAACgAAAAAAAAAAAA0wAkAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-11T13:16:27.279Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "DependencyInjection.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\APIRede\\APIRedeSocial\\RedeSocial.Infra.Ioc\\DependencyInjection.cs",
+              "RelativeDocumentMoniker": "RedeSocial.Infra.Ioc\\DependencyInjection.cs",
+              "ToolTip": "C:\\Users\\Usuario\\APIRede\\APIRedeSocial\\RedeSocial.Infra.Ioc\\DependencyInjection.cs",
+              "RelativeToolTip": "RedeSocial.Infra.Ioc\\DependencyInjection.cs",
+              "ViewState": "AgIAABgAAAAAAAAAAAAQwB8AAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-11T13:08:39.66Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
