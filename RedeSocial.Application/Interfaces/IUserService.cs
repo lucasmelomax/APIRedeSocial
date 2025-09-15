@@ -3,12 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.JsonPatch;
+using RedeSocial.Application.DTOs;
 using RedeSocial.Domain.Interfaces;
 using RedeSocial.Domain.Models;
 
 namespace RedeSocial.Application.Interfaces
 {
-    internal interface IUserService : IRepository<Users>
-    {
+    public interface IUserService {
+
+        Task<IEnumerable<UsersDTO>> GetAll();
+        Task<UsersDTO> GetById(int id);
+        Task<UsersDTO> Create(UsersDTO usersDTO);
+        Task<UsersDTO> Update(int id, JsonPatchDocument<UpdateUserDTO> updateUserDTO);
+        Task DeleteById(int id);
     }
 }

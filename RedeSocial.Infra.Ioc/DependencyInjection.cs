@@ -8,7 +8,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using MySqlConnector;
+using RedeSocial.Application.Interfaces;
 using RedeSocial.Application.Mappings;
+using RedeSocial.Application.Services;
 using RedeSocial.Domain.Interfaces;
 using RedeSocial.Infra.Data.Context;
 using RedeSocial.Infra.Data.Repositories;
@@ -26,8 +28,11 @@ namespace RedeSocial.Infra.Ioc {
                     
             });
 
-            services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddAutoMapper(typeof(DTOMappingProfile));
+            services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+            services.AddScoped<IUserService, UserService>();
+            
 
             return services;
         } 

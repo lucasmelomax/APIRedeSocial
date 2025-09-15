@@ -18,12 +18,11 @@ namespace RedeSocial.Infra.Data.Repositories
 
         private readonly DbSet<T> _dbSet;
 
-        public Repository(RedeSocialContext context)
+        public Repository(RedeSocialContext context, IUnitOfWork uof)
         {
             _context = context;
             _dbSet = _context.Set<T>();
         }
-
         public async Task<IEnumerable<T?>> GetAll()
         {
             return await _dbSet.ToListAsync();
@@ -35,20 +34,17 @@ namespace RedeSocial.Infra.Data.Repositories
         public async Task<T?> Create(T entity)
         {
             await _dbSet.AddAsync(entity);
-            await _context.SaveChangesAsync();
             return entity;
         }
         public async Task<T?> Update(T entity)
         {
             _dbSet.Update(entity);
-            await _context.SaveChangesAsync();
             return entity;
         }
         public async Task DeleteById(int id)
         {
-            var deletado = await GetById(id);
+            var deletado = await _dbSet.FindAsync(id);
             if(deletado != null) _dbSet.Remove(deletado);
-            await _context.SaveChangesAsync();
         }
     }
 }

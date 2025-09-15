@@ -39,3 +39,6 @@ C:\Users\Usuario\APIRede\APIRedeSocial\RedeSocial.Infra.Ioc\obj\Debug\net8.0\ref
 C:\Users\Usuario\APIRede\APIRedeSocial\RedeSocial.Infra.Ioc\obj\Debug\net8.0\RedeSocial.Infra.Ioc.pdb
 C:\Users\Usuario\APIRede\APIRedeSocial\RedeSocial.Infra.Ioc\obj\Debug\net8.0\RedeSocial.Infra.Ioc.genruntimeconfig.cache
 C:\Users\Usuario\APIRede\APIRedeSocial\RedeSocial.Infra.Ioc\obj\Debug\net8.0\ref\RedeSocial.Infra.Ioc.dll
+C:\Users\lucas\source\repos\RedeSocial\RedeSocial.Infra.Ioc\obj\Debug\net8.0\RedeSocial.Infra.Ioc.sourcelink.json
+C:\Users\lucas\source\repos\RedeSocial\RedeSocial.Infra.Ioc\bin\Debug\net8.0\RedeSocial.Infra.Ioc.runtimeconfig.json
+C:\Users\lucas\source\repos\RedeSocial\RedeSocial.Infra.Ioc\obj\Debug\net8.0\RedeSocial.Infra.Ioc.genruntimeconfig.cache

@@ -21,3 +21,4 @@ C:\Users\Usuario\APIRede\APIRedeSocial\RedeSocial.Domain\obj\Debug\net8.0\RedeSo
 C:\Users\Usuario\APIRede\APIRedeSocial\RedeSocial.Domain\obj\Debug\net8.0\refint\RedeSocial.Domain.dll
 C:\Users\Usuario\APIRede\APIRedeSocial\RedeSocial.Domain\obj\Debug\net8.0\RedeSocial.Domain.pdb
 C:\Users\Usuario\APIRede\APIRedeSocial\RedeSocial.Domain\obj\Debug\net8.0\ref\RedeSocial.Domain.dll
+C:\Users\lucas\source\repos\RedeSocial\RedeSocial.Domain\obj\Debug\net8.0\RedeSocial.Domain.sourcelink.json

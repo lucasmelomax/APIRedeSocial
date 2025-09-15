@@ -29,3 +29,4 @@ C:\Users\Usuario\APIRede\APIRedeSocial\RedeSocial.Application\obj\Debug\net8.0\R
 C:\Users\Usuario\APIRede\APIRedeSocial\RedeSocial.Application\obj\Debug\net8.0\refint\RedeSocial.Application.dll
 C:\Users\Usuario\APIRede\APIRedeSocial\RedeSocial.Application\obj\Debug\net8.0\RedeSocial.Application.pdb
 C:\Users\Usuario\APIRede\APIRedeSocial\RedeSocial.Application\obj\Debug\net8.0\ref\RedeSocial.Application.dll
+C:\Users\lucas\source\repos\RedeSocial\RedeSocial.Application\obj\Debug\net8.0\RedeSocial.Application.sourcelink.json

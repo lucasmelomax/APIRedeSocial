@@ -33,3 +33,6 @@ C:\Users\Usuario\APIRede\APIRedeSocial\RedeSocial.Infra.Data\obj\Debug\net8.0\re
 C:\Users\Usuario\APIRede\APIRedeSocial\RedeSocial.Infra.Data\obj\Debug\net8.0\RedeSocial.Infra.Data.pdb
 C:\Users\Usuario\APIRede\APIRedeSocial\RedeSocial.Infra.Data\obj\Debug\net8.0\RedeSocial.Infra.Data.genruntimeconfig.cache
 C:\Users\Usuario\APIRede\APIRedeSocial\RedeSocial.Infra.Data\obj\Debug\net8.0\ref\RedeSocial.Infra.Data.dll
+C:\Users\lucas\source\repos\RedeSocial\RedeSocial.Infra.Data\obj\Debug\net8.0\RedeSocial.Infra.Data.sourcelink.json
+C:\Users\lucas\source\repos\RedeSocial\RedeSocial.Infra.Data\bin\Debug\net8.0\RedeSocial.Application.dll
+C:\Users\lucas\source\repos\RedeSocial\RedeSocial.Infra.Data\bin\Debug\net8.0\RedeSocial.Application.pdb

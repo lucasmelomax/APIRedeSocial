@@ -9,7 +9,7 @@ using RedeSocial.Domain.Models;
 
 namespace RedeSocial.Application.DTOs
 {
-    internal class UsersDTO
+    public class UsersDTO
     {
         public int UsersId { get; set; }
         public bool Active { get; set; }
@@ -38,10 +38,5 @@ namespace RedeSocial.Application.DTOs
         [Required]
         [StringLength(50)]
         public string? Username { get; set; }
-
-        public ICollection<Followers>? Followers { get; set; } = new Collection<Followers>();
-        public ICollection<Likes>? Likes { get; set; } = new Collection<Likes>();
-        public ICollection<Comments>? Comments { get; set; } = new Collection<Comments>();
-        public ICollection<Posts>? Posts { get; set; } = new Collection<Posts>();
     }
 }
