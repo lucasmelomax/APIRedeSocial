@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using RedeSocial.Domain.Interfaces;
-
-
+using RedeSocial.Domain.Pagination;
 using RedeSocial.Infra.Data.Context;
+using RedeSocial.Infra.Data.Helpers;
 
 namespace RedeSocial.Infra.Data.Repositories
 {
@@ -23,9 +23,10 @@ namespace RedeSocial.Infra.Data.Repositories
             _context = context;
             _dbSet = _context.Set<T>();
         }
-        public async Task<IEnumerable<T?>> GetAll()
+        public async Task<PagedList<T?>> GetAll(int pageNumber, int pageSize)
         {
-            return await _dbSet.ToListAsync();
+            var query = _dbSet.AsQueryable();
+            return await PaginationHelper.CreateAsync(query, pageNumber, pageSize);
         }
         public async Task<T?> GetById(int id)
         {

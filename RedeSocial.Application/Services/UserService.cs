@@ -9,6 +9,7 @@ using RedeSocial.Application.DTOs;
 using RedeSocial.Application.Interfaces;
 using RedeSocial.Domain.Interfaces;
 using RedeSocial.Domain.Models;
+using RedeSocial.Domain.Pagination;
 
 namespace RedeSocial.Application.Services
 {
@@ -24,12 +25,14 @@ namespace RedeSocial.Application.Services
             _repository = repository;
             _uof = uof;
         }
-        public async Task<IEnumerable<UsersDTO>> GetAll() {
-            var clientes = await _repository.GetAll();
-            if(clientes is null) {
+        public async Task<PagedList<UsersDTO>> GetAll(int pageNumber, int pageSize) {
+            var clientes = await _repository.GetAll(pageNumber, pageSize);
+            if (clientes is null) {
                 throw new InvalidOperationException("Erro ao encontrar usuarios.");
             }
-            return _mapper.Map<IEnumerable<UsersDTO>>(clientes);
+            var clientesDTO = _mapper.Map<IEnumerable<UsersDTO>>(clientes);
+
+            return new PagedList<UsersDTO>(clientesDTO, pageNumber, pageSize, clientes.TotalCount);
         }
         public async Task<UsersDTO> GetById(int id) {
             var cliente = await _repository.GetById(id);

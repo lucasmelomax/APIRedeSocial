@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
+using RedeSocial.API.Extensions;
+using RedeSocial.API.Models;
 using RedeSocial.Application.DTOs;
 using RedeSocial.Application.Interfaces;
 using RedeSocial.Domain.Models;
@@ -18,13 +20,15 @@ namespace RedeSocial.API.Controllers {
 
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<UsersDTO>>> Get() {
+        public async Task<ActionResult<IEnumerable<UsersDTO>>> Get([FromQuery]PaginationParams pag) {
 
             try {
-                var users = await _userService.GetAll();
+                var users = await _userService.GetAll(pag.PageNumber, pag.PageSize);
                 if (users == null) {
                     return NotFound("Não tem usuarios.");
                 }
+                Response.AddPaginationHeader(new PaginationHeader
+                    (users.CurrentPage, users.PageSize, users.TotalCount, users.TotalPages));
                 return Ok(users);
             }catch (Exception ex) {
                 return BadRequest(ex.Message);

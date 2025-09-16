@@ -7,12 +7,13 @@ using Microsoft.AspNetCore.JsonPatch;
 using RedeSocial.Application.DTOs;
 using RedeSocial.Domain.Interfaces;
 using RedeSocial.Domain.Models;
+using RedeSocial.Domain.Pagination;
 
 namespace RedeSocial.Application.Interfaces
 {
     public interface IUserService {
 
-        Task<IEnumerable<UsersDTO>> GetAll();
+        Task<PagedList<UsersDTO>> GetAll(int pageNumber, int pageSize);
         Task<UsersDTO> GetById(int id);
         Task<UsersDTO> Create(UsersDTO usersDTO);
         Task<UsersDTO> Update(int id, JsonPatchDocument<UpdateUserDTO> updateUserDTO);
