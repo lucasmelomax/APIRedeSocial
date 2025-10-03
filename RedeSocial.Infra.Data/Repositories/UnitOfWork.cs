@@ -1,21 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using RedeSocial.Application.Interfaces;
-using RedeSocial.Domain.Interfaces;
+﻿using RedeSocial.Domain.Interfaces;
 using RedeSocial.Domain.Models;
 using RedeSocial.Infra.Data.Context;
 
 namespace RedeSocial.Infra.Data.Repositories {
     public class UnitOfWork : IUnitOfWork {
-
-        public RedeSocialContext _context;
+        private readonly RedeSocialContext _context;
+        private IRepository<Users> _userRepository;
 
         public UnitOfWork(RedeSocialContext context) {
             _context = context;
         }
+
+        public IRepository<Users> UserRepository
+            => _userRepository ??= new Repository<Users>(_context);
 
         public async Task<bool> Commit() {
             return await _context.SaveChangesAsync() > 0;

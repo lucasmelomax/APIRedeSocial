@@ -9,10 +9,10 @@ namespace RedeSocial.Domain.Interfaces
 {
     public interface IRepository<T> where T : class
     {
-        Task<PagedList<T?>> GetAll(int pageNumber, int pageSize);
+        IQueryable<T?> GetAll();
         Task<T?> GetById(int id);
         Task<T?> Create(T entity);
-        Task<T?> Update(T entity);
+        Task<T?> Update(int id, T entity);
         Task DeleteById(int id);
     }
 }

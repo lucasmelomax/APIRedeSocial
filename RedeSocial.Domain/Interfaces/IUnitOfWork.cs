@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using RedeSocial.Domain.Interfaces;
 using RedeSocial.Domain.Models;
 
 namespace RedeSocial.Domain.Interfaces {
-    public interface IUnitOfWork {
+    public interface IUnitOfWork : IDisposable {
+        IRepository<Users> UserRepository { get; }
         Task<bool> Commit();
     }
 }

@@ -1,0 +1,47 @@
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Build results
+bin/
+obj/
+out/
+
+# Rider
+.idea/
+
+# Visual Studio Code
+.vscode/
+
+# NuGet
+*.nupkg
+*.snupkg
+.nuget/
+packages/
+
+# ASP.NET / ASP.NET Core
+appsettings*.json
+wwwroot/lib/
+
+# Logs
+*.log
+logs/
+
+# Entity Framework Core Migrations (opcional, se você não quiser versionar)
+Migrations/
+
+# Resharper
+_ReSharper*/
+*.DotSettings.user
+
+# OS-specific
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# Node / frontend (se houver)
+node_modules/
+dist/

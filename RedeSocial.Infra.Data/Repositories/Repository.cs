@@ -17,16 +17,14 @@ namespace RedeSocial.Infra.Data.Repositories
         private readonly RedeSocialContext _context;
 
         private readonly DbSet<T> _dbSet;
-
-        public Repository(RedeSocialContext context, IUnitOfWork uof)
+        public Repository(RedeSocialContext context)
         {
             _context = context;
             _dbSet = _context.Set<T>();
         }
-        public async Task<PagedList<T?>> GetAll(int pageNumber, int pageSize)
+        public IQueryable<T> GetAll()
         {
-            var query = _dbSet.AsQueryable();
-            return await PaginationHelper.CreateAsync(query, pageNumber, pageSize);
+            return _dbSet.AsQueryable();
         }
         public async Task<T?> GetById(int id)
         {
@@ -37,8 +35,8 @@ namespace RedeSocial.Infra.Data.Repositories
             await _dbSet.AddAsync(entity);
             return entity;
         }
-        public async Task<T?> Update(T entity)
-        {
+        public async Task<T> Update(int id, T entity) {
+            var update = await _dbSet.FindAsync(id);
             _dbSet.Update(entity);
             return entity;
         }
@@ -47,5 +45,6 @@ namespace RedeSocial.Infra.Data.Repositories
             var deletado = await _dbSet.FindAsync(id);
             if(deletado != null) _dbSet.Remove(deletado);
         }
+
     }
 }

@@ -15,8 +15,6 @@
             "name": "PageNumber",
             "in": "query",
             "schema": {
-              "maximum": 2147483647,
-              "minimum": 1,
               "type": "integer",
               "format": "int32"
             }
@@ -25,8 +23,6 @@
             "name": "PageSize",
             "in": "query",
             "schema": {
-              "maximum": 50,
-              "minimum": 1,
               "type": "integer",
               "format": "int32"
             }
@@ -40,7 +36,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/UsersDTO"
+                    "$ref": "#/components/schemas/UserResponseDTO"
                   }
                 }
               },
@@ -48,7 +44,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/UsersDTO"
+                    "$ref": "#/components/schemas/UserResponseDTO"
                   }
                 }
               },
@@ -56,7 +52,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/UsersDTO"
+                    "$ref": "#/components/schemas/UserResponseDTO"
                   }
                 }
               }
@@ -98,17 +94,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/UsersDTO"
+                  "$ref": "#/components/schemas/UserResponseDTO"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/UsersDTO"
+                  "$ref": "#/components/schemas/UserResponseDTO"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/UsersDTO"
+                  "$ref": "#/components/schemas/UserResponseDTO"
                 }
               }
             }
@@ -139,17 +135,79 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/UsersDTO"
+                  "$ref": "#/components/schemas/UserResponseDTO"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/UsersDTO"
+                  "$ref": "#/components/schemas/UserResponseDTO"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/UsersDTO"
+                  "$ref": "#/components/schemas/UserResponseDTO"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Users"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UsersDTO"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UsersDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UsersDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UsersDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserResponseDTO"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserResponseDTO"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserResponseDTO"
                 }
               }
             }
@@ -213,17 +271,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/UsersDTO"
+                  "$ref": "#/components/schemas/UserResponseDTO"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/UsersDTO"
+                  "$ref": "#/components/schemas/UserResponseDTO"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/UsersDTO"
+                  "$ref": "#/components/schemas/UserResponseDTO"
                 }
               }
             }
@@ -251,17 +309,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/UsersDTO"
+                  "$ref": "#/components/schemas/UserResponseDTO"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/UsersDTO"
+                  "$ref": "#/components/schemas/UserResponseDTO"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/UsersDTO"
+                  "$ref": "#/components/schemas/UserResponseDTO"
                 }
               }
             }
@@ -308,6 +366,43 @@
         ],
         "type": "integer",
         "format": "int32"
+      },
+      "UserResponseDTO": {
+        "type": "object",
+        "properties": {
+          "usersId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "active": {
+            "type": "boolean"
+          },
+          "bio": {
+            "type": "string",
+            "nullable": true
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "imageURL": {
+            "type": "string",
+            "nullable": true
+          },
+          "username": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
       },
       "UsersDTO": {
         "required": [

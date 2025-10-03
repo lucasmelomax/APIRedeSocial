@@ -13,10 +13,11 @@ namespace RedeSocial.Application.Interfaces
 {
     public interface IUserService {
 
-        Task<PagedList<UsersDTO>> GetAll(int pageNumber, int pageSize);
-        Task<UsersDTO> GetById(int id);
-        Task<UsersDTO> Create(UsersDTO usersDTO);
-        Task<UsersDTO> Update(int id, JsonPatchDocument<UpdateUserDTO> updateUserDTO);
+        Task<PagedList<UserResponseDTO>> GetAll(PagedParams pagedParams);
+        Task<UserResponseDTO> GetById(int id);
+        Task<UserResponseDTO> Create(UsersDTO usersDTO);
+        Task<UserResponseDTO> Put(int id, UsersDTO userDTO);
+        Task<UserResponseDTO> Patch(int id, JsonPatchDocument<UsersDTO> userDTO);
         Task DeleteById(int id);
     }
 }

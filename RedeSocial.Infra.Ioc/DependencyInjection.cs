@@ -28,10 +28,12 @@ namespace RedeSocial.Infra.Ioc {
                     
             });
 
-            services.AddScoped<IUnitOfWork, UnitOfWork>();
-            services.AddAutoMapper(typeof(DTOMappingProfile));
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<IUserService, UserService>();
+            services.AddAutoMapper(typeof(DTOMappingProfile));
+
+
             
 
             return services;

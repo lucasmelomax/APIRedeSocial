@@ -14,7 +14,7 @@ namespace RedeSocial.Application.Mappings
         public DTOMappingProfile() { 
         
             CreateMap<Users, UsersDTO>().ReverseMap();
-            CreateMap<Users, UpdateUserDTO>().ReverseMap();
+            CreateMap<Users, UserResponseDTO>().ReverseMap();
 
         }
     }

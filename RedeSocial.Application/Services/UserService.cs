@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using AutoMapper;
 using Microsoft.AspNetCore.JsonPatch;
+using AutoMapper;
 using RedeSocial.Application.DTOs;
 using RedeSocial.Application.Interfaces;
 using RedeSocial.Domain.Interfaces;
@@ -16,65 +16,89 @@ namespace RedeSocial.Application.Services
     public class UserService : IUserService
     {
         private readonly IMapper _mapper;
-        private readonly IRepository<Users> _repository;
         private readonly IUnitOfWork _uof;
 
-        public UserService(IMapper mapper, IRepository<Users> repository, IUnitOfWork uof)
+        public UserService(IMapper mapper, IUnitOfWork uof)
         {
             _mapper = mapper;
-            _repository = repository;
             _uof = uof;
         }
-        public async Task<PagedList<UsersDTO>> GetAll(int pageNumber, int pageSize) {
-            var clientes = await _repository.GetAll(pageNumber, pageSize);
-            if (clientes is null) {
-                throw new InvalidOperationException("Erro ao encontrar usuarios.");
-            }
-            var clientesDTO = _mapper.Map<IEnumerable<UsersDTO>>(clientes);
+        public async Task<PagedList<UserResponseDTO>> GetAll(PagedParams pagedParams) {
+            var query = _uof.UserRepository.GetAll()
+                        .OrderBy(u => u.UsersId);
 
-            return new PagedList<UsersDTO>(clientesDTO, pageNumber, pageSize, clientes.TotalCount);
+            var totalCount = query.Count();
+
+            var items = query
+                .Skip((pagedParams.PageNumber - 1) * pagedParams.PageSize)
+                .Take(pagedParams.PageSize)
+                .ToList();
+
+            var itemsDTO = _mapper.Map<List<UserResponseDTO>>(items);
+
+            return new PagedList<UserResponseDTO>(
+                itemsDTO,
+                totalCount,
+                pagedParams.PageNumber,
+                pagedParams.PageSize
+            );
         }
-        public async Task<UsersDTO> GetById(int id) {
-            var cliente = await _repository.GetById(id);
+
+        public async Task<UserResponseDTO> GetById(int id) {
+            var cliente = await _uof.UserRepository.GetById(id);
             if (cliente is null) {
                 throw new InvalidOperationException("Erro ao encontrar usuario.");
             }
-            return _mapper.Map<UsersDTO>(cliente);
+            return _mapper.Map<UserResponseDTO>(cliente);
         }
-        public async Task<UsersDTO> Create(UsersDTO usersDTO) {
+        public async Task<UserResponseDTO> Create(UsersDTO usersDTO) {
             if (usersDTO is null) {
                 throw new InvalidOperationException("Dados do usuario invalidos.");
             }
             var cliente = _mapper.Map<Users>(usersDTO);
-            var clienteCriado = await _repository.Create(cliente);
+            var clienteCriado = await _uof.UserRepository.Create(cliente);
             await _uof.Commit();
-            return _mapper.Map<UsersDTO>(clienteCriado);
+            return _mapper.Map<UserResponseDTO>(clienteCriado);
         }
-        public async Task<UsersDTO> Update(int id, JsonPatchDocument<UpdateUserDTO> updateUserDTO) {
-           
-            if (updateUserDTO is null) {
+        public async Task<UserResponseDTO> Put(int id, UsersDTO userDTO) {
+            if (userDTO is null)
+                throw new InvalidOperationException("Dados do usuário inválidos.");
+
+            var user = await _uof.UserRepository.GetById(id);
+            if (user is null)
+                throw new InvalidOperationException("Usuário não encontrado.");
+
+            _mapper.Map(userDTO, user);
+
+            await _uof.UserRepository.Update(id, user);
+            await _uof.Commit();
+
+            return _mapper.Map<UserResponseDTO>(user);
+        }
+        public async Task<UserResponseDTO> Patch(int id, JsonPatchDocument<UsersDTO> userDTO) {
+            if (userDTO is null) {
                 throw new InvalidOperationException("Dados do usuario invalidos.");
             }
 
-            var user = await _repository.GetById(id);
+            var user = await _uof.UserRepository.GetById(id);
 
             if (user is null) {
                 throw new InvalidOperationException("Usuario não encontrado.");
             }
 
-            var dtoPatch = _mapper.Map<UpdateUserDTO>(user);
+            var DTO = _mapper.Map<UsersDTO>(user);
 
-            updateUserDTO.ApplyTo(dtoPatch);
+            userDTO.ApplyTo(DTO);
 
-            _mapper.Map(dtoPatch, user);
+            _mapper.Map(DTO, user);
 
-            var updated = await _repository.Update(user);
+            var updated = await _uof.UserRepository.Update(id, user);
             await _uof.Commit();
 
-            return _mapper.Map<UsersDTO>(updated);
+            return _mapper.Map<UserResponseDTO>(updated);
         }
         public async Task DeleteById(int id) {
-            await _repository.DeleteById(id);
+            await _uof.UserRepository.DeleteById(id);
             await _uof.Commit();
         }
     }
