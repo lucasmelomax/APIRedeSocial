@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
 using Microsoft.AspNetCore.JsonPatch;
 using AutoMapper;
 using RedeSocial.Application.DTOs;
@@ -60,13 +56,17 @@ namespace RedeSocial.Application.Services
             await _uof.Commit();
             return _mapper.Map<UserResponseDTO>(clienteCriado);
         }
-        public async Task<UserResponseDTO> Put(int id, UsersDTO userDTO) {
+        public async Task<UserResponseDTO> Put(int id, UserPutDTO userDTO) {
             if (userDTO is null)
                 throw new InvalidOperationException("Dados do usuário inválidos.");
 
             var user = await _uof.UserRepository.GetById(id);
             if (user is null)
                 throw new InvalidOperationException("Usuário não encontrado.");
+
+            if (user.UsersId != id) {
+                throw new InvalidOperationException("id invalido!");
+            }
 
             _mapper.Map(userDTO, user);
 
@@ -98,6 +98,13 @@ namespace RedeSocial.Application.Services
             return _mapper.Map<UserResponseDTO>(updated);
         }
         public async Task DeleteById(int id) {
+            var cliente = await _uof.UserRepository.GetById(id);
+            if (cliente is null) {
+                throw new InvalidOperationException("Erro ao encontrar usuario.");
+            }
+            if(cliente.UsersId != id) {
+                throw new InvalidOperationException("id invalido!");
+            }
             await _uof.UserRepository.DeleteById(id);
             await _uof.Commit();
         }

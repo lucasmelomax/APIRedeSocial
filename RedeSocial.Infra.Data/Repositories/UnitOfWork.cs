@@ -4,6 +4,7 @@ using RedeSocial.Infra.Data.Context;
 
 namespace RedeSocial.Infra.Data.Repositories {
     public class UnitOfWork : IUnitOfWork {
+
         private readonly RedeSocialContext _context;
         private IRepository<Users> _userRepository;
 

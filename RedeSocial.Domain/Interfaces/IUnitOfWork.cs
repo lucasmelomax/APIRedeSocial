@@ -1,5 +1,4 @@
-﻿using RedeSocial.Domain.Interfaces;
-using RedeSocial.Domain.Models;
+﻿using RedeSocial.Domain.Models;
 
 namespace RedeSocial.Domain.Interfaces {
     public interface IUnitOfWork : IDisposable {

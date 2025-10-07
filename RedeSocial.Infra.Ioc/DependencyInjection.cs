@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using AutoMapper;
+﻿using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using MySqlConnector;
 using RedeSocial.Application.Interfaces;
 using RedeSocial.Application.Mappings;
 using RedeSocial.Application.Services;
@@ -32,9 +26,6 @@ namespace RedeSocial.Infra.Ioc {
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<IUserService, UserService>();
             services.AddAutoMapper(typeof(DTOMappingProfile));
-
-
-            
 
             return services;
         } 

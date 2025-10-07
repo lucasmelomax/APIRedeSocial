@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using RedeSocial.Domain.Interfaces;
-using RedeSocial.Domain.Pagination;
 using RedeSocial.Infra.Data.Context;
-using RedeSocial.Infra.Data.Helpers;
+
 
 namespace RedeSocial.Infra.Data.Repositories
 {
@@ -35,7 +29,7 @@ namespace RedeSocial.Infra.Data.Repositories
             await _dbSet.AddAsync(entity);
             return entity;
         }
-        public async Task<T> Update(int id, T entity) {
+        public async Task<T?> Update(int id, T entity) {
             var update = await _dbSet.FindAsync(id);
             _dbSet.Update(entity);
             return entity;

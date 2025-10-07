@@ -98,7 +98,7 @@
       },
       {
         "Name": "usersDTO",
-        "Type": "RedeSocial.Application.DTOs.UsersDTO",
+        "Type": "RedeSocial.Application.DTOs.UserPutDTO",
         "IsRequired": true
       }
     ],

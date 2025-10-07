@@ -1,12 +1,13 @@
-using Microsoft.EntityFrameworkCore;
-using RedeSocial.Infra.Data.Context;
+
+using RedeSocial.API.Middleware;
 using RedeSocial.Infra.Ioc;
-using System;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddControllers().AddNewtonsoftJson();
+builder.Services.AddControllers().AddNewtonsoftJson(options => {
+    options.SerializerSettings.MissingMemberHandling = Newtonsoft.Json.MissingMemberHandling.Error;
+});
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -20,6 +21,8 @@ if (app.Environment.IsDevelopment()) {
     app.UseSwagger();                                                                                                                        
     app.UseSwaggerUI();
 }
+
+app.UseMiddleware<ExceptionMiddleware>();
 
 app.UseHttpsRedirection();
 

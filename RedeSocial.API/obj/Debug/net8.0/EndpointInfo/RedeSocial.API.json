@@ -171,22 +171,22 @@
           "content": {
             "application/json-patch+json": {
               "schema": {
-                "$ref": "#/components/schemas/UsersDTO"
+                "$ref": "#/components/schemas/UserPutDTO"
               }
             },
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/UsersDTO"
+                "$ref": "#/components/schemas/UserPutDTO"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/UsersDTO"
+                "$ref": "#/components/schemas/UserPutDTO"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/UsersDTO"
+                "$ref": "#/components/schemas/UserPutDTO"
               }
             }
           }
@@ -367,6 +367,54 @@
         "type": "integer",
         "format": "int32"
       },
+      "UserPutDTO": {
+        "required": [
+          "bio",
+          "email",
+          "imageURL",
+          "name",
+          "password",
+          "username"
+        ],
+        "type": "object",
+        "properties": {
+          "usersId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "bio": {
+            "maxLength": 150,
+            "minLength": 0,
+            "type": "string"
+          },
+          "name": {
+            "maxLength": 80,
+            "minLength": 0,
+            "type": "string"
+          },
+          "email": {
+            "maxLength": 80,
+            "minLength": 0,
+            "type": "string"
+          },
+          "password": {
+            "maxLength": 50,
+            "minLength": 0,
+            "type": "string"
+          },
+          "imageURL": {
+            "maxLength": 300,
+            "minLength": 0,
+            "type": "string"
+          },
+          "username": {
+            "maxLength": 50,
+            "minLength": 0,
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
       "UserResponseDTO": {
         "type": "object",
         "properties": {
@@ -415,21 +463,10 @@
         ],
         "type": "object",
         "properties": {
-          "usersId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "active": {
-            "type": "boolean"
-          },
           "bio": {
             "maxLength": 150,
             "minLength": 0,
             "type": "string"
-          },
-          "createdAt": {
-            "type": "string",
-            "format": "date-time"
           },
           "name": {
             "maxLength": 80,
