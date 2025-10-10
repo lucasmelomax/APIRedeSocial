@@ -7,6 +7,7 @@ namespace RedeSocial.Infra.Data.Repositories {
 
         private readonly RedeSocialContext _context;
         private IRepository<Users> _userRepository;
+        private IRepository<Posts> _postsRepository;
 
         public UnitOfWork(RedeSocialContext context) {
             _context = context;
@@ -14,6 +15,9 @@ namespace RedeSocial.Infra.Data.Repositories {
 
         public IRepository<Users> UserRepository
             => _userRepository ??= new Repository<Users>(_context);
+
+        public IRepository<Posts> PostsRepository
+           => _postsRepository ??= new Repository<Posts>(_context);
 
         public async Task<bool> Commit() {
             return await _context.SaveChangesAsync() > 0;

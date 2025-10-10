@@ -11,7 +11,7 @@ namespace RedeSocial.Domain.Models {
         [Required]
         [StringLength(150)]
         public string? Bio { get; set; }
-        public DateTime CreatedAt { get; set; }
+        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 
         [Required]
         [StringLength(80)]

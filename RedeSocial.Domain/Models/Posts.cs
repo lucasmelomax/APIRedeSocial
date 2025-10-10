@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 namespace RedeSocial.Domain.Models {
     public class Posts {
         public int PostsId { get; set; }
-        public DateTime CreatedAt { get; set; }
+        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 
         [Required]
         [StringLength(150)]

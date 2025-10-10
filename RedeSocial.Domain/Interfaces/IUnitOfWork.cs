@@ -3,6 +3,7 @@
 namespace RedeSocial.Domain.Interfaces {
     public interface IUnitOfWork : IDisposable {
         IRepository<Users> UserRepository { get; }
+        IRepository<Posts> PostsRepository { get; }
         Task<bool> Commit();
     }
 }

@@ -22,6 +22,7 @@
         private static Task HandleExceptionAsync(HttpContext context, Exception ex) {
             var statusCode = ex switch {
                 ArgumentException => StatusCodes.Status400BadRequest,
+                InvalidOperationException => StatusCodes.Status400BadRequest, 
                 KeyNotFoundException => StatusCodes.Status404NotFound,
                 _ => StatusCodes.Status500InternalServerError
             };

@@ -8,6 +8,8 @@ namespace RedeSocial.Application.Interfaces
     public interface IUserService {
 
         Task<PagedList<UserResponseDTO>> GetAll(PagedParams pagedParams);
+
+        Task<PagedList<UserResponseDTO>> GetActiveUsers(string ativo, PagedParams pagedParams);
         Task<UserResponseDTO> GetById(int id);
         Task<UserResponseDTO> Create(UsersDTO usersDTO);
         Task<UserResponseDTO> Put(int id, UserPutDTO userDTO);

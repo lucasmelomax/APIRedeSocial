@@ -47,6 +47,39 @@ namespace RedeSocial.Application.Services
             }
             return _mapper.Map<UserResponseDTO>(cliente);
         }
+        public async Task<PagedList<UserResponseDTO>> GetActiveUsers(string ativo, PagedParams pagedParams) {
+
+            IQueryable<Users?> query;
+
+            if (ativo == "ativos") {
+                query = _uof.UserRepository.GetAll().OrderBy(u => u.UsersId).Where(u => u.Active == true);
+                if (!query.Any()) throw new InvalidOperationException("Nao tem usuarios ativos");
+            }
+            else if (ativo == "inativos") {
+                query = _uof.UserRepository.GetAll().OrderBy(u => u.UsersId).Where(u => u.Active == false);
+                if (!query.Any()) throw new InvalidOperationException("Nao tem usuarios ativos");
+            }
+            else {
+                throw new InvalidOperationException("Os valores passados devem ser 'ativos' ou 'inativos'.");
+            }
+
+            var totalCount = query.Count();
+
+            var items = query
+                .Skip((pagedParams.PageNumber - 1) * pagedParams.PageSize)
+                .Take(pagedParams.PageSize)
+                .ToList();
+
+            var itemsDTO = _mapper.Map<List<UserResponseDTO>>(items);
+
+            return new PagedList<UserResponseDTO>(
+                itemsDTO,
+                totalCount,
+                pagedParams.PageNumber,
+                pagedParams.PageSize
+            );
+
+        }
         public async Task<UserResponseDTO> Create(UsersDTO usersDTO) {
             if (usersDTO is null) {
                 throw new InvalidOperationException("Dados do usuario invalidos.");
@@ -105,8 +138,13 @@ namespace RedeSocial.Application.Services
             if(cliente.UsersId != id) {
                 throw new InvalidOperationException("id invalido!");
             }
+            var UserPosts = _uof.PostsRepository.GetAll().Where(p => p.UsersId == id);
+            foreach(var i in UserPosts) {
+                await _uof.PostsRepository.DeleteById(i.PostsId);
+            }
             await _uof.UserRepository.DeleteById(id);
             await _uof.Commit();
         }
+
     }
 }
