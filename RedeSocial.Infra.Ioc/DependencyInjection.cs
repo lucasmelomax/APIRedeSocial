@@ -26,6 +26,7 @@ namespace RedeSocial.Infra.Ioc {
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IPostsService, PostsService>();
+            services.AddScoped<IPhostPhotosService, PhostPhotosService>();
             services.AddAutoMapper(typeof(DTOMappingProfile));
 
             return services;

@@ -1,12 +1,9 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Hosting;
 using RedeSocial.API.Extensions;
 using RedeSocial.API.Models;
 using RedeSocial.Application.DTOs;
 using RedeSocial.Application.Interfaces;
-using RedeSocial.Application.Services;
-using RedeSocial.Domain.Models;
 using RedeSocial.Domain.Pagination;
 
 namespace RedeSocial.API.Controllers {

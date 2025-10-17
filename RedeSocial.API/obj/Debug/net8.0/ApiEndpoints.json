@@ -167,6 +167,142 @@
     ]
   },
   {
+    "ContainingType": "RedeSocial.API.Controllers.PostsPhotosController",
+    "Method": "Get",
+    "RelativePath": "api/PostsPhotos",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "PageNumber",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "PageSize",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "RedeSocial.Domain.Pagination.PagedList\u00601[[RedeSocial.Application.DTOs.PostsPhotosDTO, RedeSocial.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "RedeSocial.API.Controllers.PostsPhotosController",
+    "Method": "Post",
+    "RelativePath": "api/PostsPhotos",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "postsPhotosDTO",
+        "Type": "RedeSocial.Application.DTOs.PostsPhotosDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "RedeSocial.Application.DTOs.PostsPhotosDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "RedeSocial.API.Controllers.PostsPhotosController",
+    "Method": "Get",
+    "RelativePath": "api/PostsPhotos/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "RedeSocial.Application.DTOs.PostsPhotosDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ],
+    "EndpointName": "ObterPostPhoto"
+  },
+  {
+    "ContainingType": "RedeSocial.API.Controllers.PostsPhotosController",
+    "Method": "Delete",
+    "RelativePath": "api/PostsPhotos/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "RedeSocial.API.Controllers.PostsPhotosController",
+    "Method": "Get",
+    "RelativePath": "api/PostsPhotos/posts/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "PageNumber",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "PageSize",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "RedeSocial.Domain.Pagination.PagedList\u00601[[RedeSocial.Application.DTOs.PostsPhotosDTO, RedeSocial.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "RedeSocial.API.Controllers.UsersController",
     "Method": "Get",
     "RelativePath": "api/Users",
@@ -348,6 +484,42 @@
     "Parameters": [
       {
         "Name": "active",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "PageNumber",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "PageSize",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "RedeSocial.Domain.Pagination.PagedList\u00601[[RedeSocial.Application.DTOs.UserResponseDTO, RedeSocial.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "RedeSocial.API.Controllers.UsersController",
+    "Method": "GetUsername",
+    "RelativePath": "api/Users/username/{username}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "username",
         "Type": "System.String",
         "IsRequired": true
       },

@@ -80,6 +80,31 @@ namespace RedeSocial.Application.Services
             );
 
         }
+
+        public async Task<PagedList<UserResponseDTO>> GetUsersByUsername(string username, PagedParams pagedParams) {
+
+            var query = _uof.UserRepository.GetAll();
+
+            if (!string.IsNullOrEmpty(username)) {
+                query = query.Where(u => u.Username.Contains(username)).OrderBy(u => u.Username);
+            }
+            
+            var totalCount = query.Count();
+
+            var items = query
+                .Skip((pagedParams.PageNumber - 1) * pagedParams.PageSize)
+                .Take(pagedParams.PageSize)
+                .ToList();
+
+            var itemsDTO = _mapper.Map<List<UserResponseDTO>>(items);
+
+            return new PagedList<UserResponseDTO>(
+                itemsDTO,
+                totalCount,
+                pagedParams.PageNumber,
+                pagedParams.PageSize
+            );
+        }
         public async Task<UserResponseDTO> Create(UsersDTO usersDTO) {
             if (usersDTO is null) {
                 throw new InvalidOperationException("Dados do usuario invalidos.");
@@ -145,6 +170,5 @@ namespace RedeSocial.Application.Services
             await _uof.UserRepository.DeleteById(id);
             await _uof.Commit();
         }
-
     }
 }

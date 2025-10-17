@@ -46,6 +46,19 @@ namespace RedeSocial.API.Controllers {
             return Ok(usersPaged);
         }
 
+        [HttpGet("username/{username}")]
+        public async Task<ActionResult<PagedList<UserResponseDTO>>> GetUsername(string username,[FromQuery]PagedParams pagedParams) {
+            var usersPaged = await _userService.GetUsersByUsername(username, pagedParams);
+
+            Response.AddPaginationHeader(new PaginationHeader(
+                usersPaged.CurrentPage,
+                usersPaged.PageSize,
+                usersPaged.TotalCount,
+                usersPaged.TotalPages
+            ));
+
+            return Ok(usersPaged);
+        }
 
         [HttpGet("{id:int}", Name = "ObterUser")]
         public async Task<ActionResult<UserResponseDTO>> Get(int id) {
