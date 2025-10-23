@@ -41,7 +41,6 @@ C:\Users\lucas\source\repos\RedeSocial\RedeSocial.API\obj\Debug\net8.0\staticweb
 C:\Users\lucas\source\repos\RedeSocial\RedeSocial.API\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.RedeSocial.API.props
 C:\Users\lucas\source\repos\RedeSocial\RedeSocial.API\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.RedeSocial.API.props
 C:\Users\lucas\source\repos\RedeSocial\RedeSocial.API\obj\Debug\net8.0\staticwebassets.pack.json
-C:\Users\lucas\source\repos\RedeSocial\RedeSocial.API\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 C:\Users\lucas\source\repos\RedeSocial\RedeSocial.API\obj\Debug\net8.0\RedeSoci.884A0E36.Up2Date
 C:\Users\lucas\source\repos\RedeSocial\RedeSocial.API\obj\Debug\net8.0\RedeSocial.API.dll
 C:\Users\lucas\source\repos\RedeSocial\RedeSocial.API\obj\Debug\net8.0\refint\RedeSocial.API.dll
@@ -242,3 +241,4 @@ C:\Users\lucas\source\repos\RedeSocial\RedeSocial.API\bin\Debug\net8.0\Microsoft
 C:\Users\lucas\source\repos\RedeSocial\RedeSocial.API\bin\Debug\net8.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 C:\Users\lucas\source\repos\RedeSocial\RedeSocial.API\bin\Debug\net8.0\Newtonsoft.Json.dll
 C:\Users\lucas\source\repos\RedeSocial\RedeSocial.API\bin\Debug\net8.0\Newtonsoft.Json.Bson.dll
+C:\Users\lucas\source\repos\RedeSocial\RedeSocial.API\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt

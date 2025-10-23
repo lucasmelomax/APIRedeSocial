@@ -15,6 +15,9 @@ namespace RedeSocial.Application.Mappings
             CreateMap<Posts, PostsDTO>().ReverseMap();
             CreateMap<Posts, PostsResponseDTO>().ReverseMap();
             CreateMap<PostsPhotos, PostsPhotosDTO>().ReverseMap();
+            CreateMap<Comments, CommentsDTO>().ReverseMap();
+            CreateMap<Likes, LikesDTO>().ReverseMap();
+            CreateMap<Followers, FollowersDTO>().ReverseMap();
 
         }
     }

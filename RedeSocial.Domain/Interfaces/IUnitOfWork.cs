@@ -5,6 +5,9 @@ namespace RedeSocial.Domain.Interfaces {
         IRepository<Users> UserRepository { get; }
         IRepository<Posts> PostsRepository { get; }
         IRepository<PostsPhotos> PostsPhotosRepository { get; }
+        IRepository<Comments> CommentsRepository { get; }
+        IRepository<Likes> LikesRepository { get; }
+        IRepository<Followers> FollowersRepository { get; }
         Task<bool> Commit();
     }
 }
