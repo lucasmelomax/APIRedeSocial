@@ -727,32 +727,6 @@
   },
   {
     "ContainingType": "RedeSocial.API.Controllers.UsersController",
-    "Method": "Post",
-    "RelativePath": "api/Users",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "usersDTO",
-        "Type": "RedeSocial.Application.DTOs.UsersDTO",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "RedeSocial.Application.DTOs.UserResponseDTO",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "RedeSocial.API.Controllers.UsersController",
     "Method": "Get",
     "RelativePath": "api/Users/{id}",
     "HttpMethod": "GET",
@@ -929,6 +903,58 @@
     "ReturnTypes": [
       {
         "Type": "RedeSocial.Domain.Pagination.PagedList\u00601[[RedeSocial.Application.DTOs.UserResponseDTO, RedeSocial.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "RedeSocial.API.Controllers.UserTokenController",
+    "Method": "Selecionar",
+    "RelativePath": "api/UserToken/login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "loginModel",
+        "Type": "RedeSocial.API.Models.LoginModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "RedeSocial.API.Models.UserToken",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "RedeSocial.API.Controllers.UserTokenController",
+    "Method": "Incluir",
+    "RelativePath": "api/UserToken/register",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "usersDTO",
+        "Type": "RedeSocial.Application.DTOs.UsersDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "RedeSocial.API.Models.UserToken",
         "MediaTypes": [
           "text/plain",
           "application/json",

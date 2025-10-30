@@ -72,19 +72,6 @@ namespace RedeSocial.API.Controllers {
 
         }
 
-        [HttpPost]
-        public async Task<ActionResult<UserResponseDTO>> Post(UsersDTO usersDTO) {
-
-            if (usersDTO is null) {
-                return BadRequest("Dados inválidos");
-            }
-
-            var novoUser = await _userService.Create(usersDTO);
-
-            return new CreatedAtRouteResult("ObterUser", new { id = novoUser.UsersId }, novoUser);
-
-        }
-
         [HttpPut("{id:int}")]
         public async Task<ActionResult<UserResponseDTO>> Put(int id, [FromBody] UserPutDTO usersDTO) {
 

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using RedeSocial.API.Extensions;
 using RedeSocial.API.Models;
@@ -18,7 +19,7 @@ namespace RedeSocial.API.Controllers {
         }
 
         [HttpGet]
-
+        [Authorize]
         public async Task<ActionResult<PagedList<CommentsDTO>>> Get([FromQuery] PagedParams pagedParams) {
             var commentPaged = await _service.GetAll(pagedParams);
 
