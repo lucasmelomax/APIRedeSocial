@@ -1,6 +1,8 @@
 ﻿
-namespace RedeSocial.Domain.Models {
-    public class Tags {
+namespace RedeSocial.Domain.Models
+{
+    public class Tags
+    {
 
         public int TagsId { get; set; }
         public int UsersId { get; set; }

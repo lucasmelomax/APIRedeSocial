@@ -6,8 +6,10 @@ using System.Text;
 using System.Threading.Tasks;
 using RedeSocial.Domain.Models;
 
-namespace RedeSocial.Application.DTOs {
-    public class PostsPhotosDTO {
+namespace RedeSocial.Application.DTOs
+{
+    public class PostsPhotosDTO
+    {
         public int PostsPhotosId { get; set; }
 
         [Required]

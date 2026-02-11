@@ -5,33 +5,37 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
-using RedeSocial.Application.Interfaces;
 using RedeSocial.Application.Mappings;
-using RedeSocial.Application.Services;
 using RedeSocial.Domain.Account;
 using RedeSocial.Domain.Interfaces;
 using RedeSocial.Infra.Data.Context;
 using RedeSocial.Infra.Data.Identity;
 using RedeSocial.Infra.Data.Repositories;
 
-namespace RedeSocial.Infra.Ioc {
-    public static class DependencyInjection {
+namespace RedeSocial.Infra.Ioc
+{
+    public static class DependencyInjection
+    {
 
         public static IServiceCollection AddInfrastructure(this IServiceCollection services,
-            IConfiguration configuration) 
+            IConfiguration configuration)
         {
-            services.AddDbContext<RedeSocialContext>(options => {
+            services.AddDbContext<RedeSocialContext>(options =>
+            {
                 options.UseMySql(configuration.GetConnectionString("DefaultConnection"),
                     ServerVersion.AutoDetect(configuration.GetConnectionString("DefaultConnection")),
                     b => b.MigrationsAssembly(typeof(RedeSocialContext).Assembly.FullName));
-                    
+
             });
 
-            services.AddAuthentication(opt => {
+            services.AddAuthentication(opt =>
+            {
                 opt.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
                 opt.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-            }).AddJwtBearer(options => {
-                options.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters {
+            }).AddJwtBearer(options =>
+            {
+                options.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
+                {
                     ValidateIssuer = true,
                     ValidateAudience = true,
                     ValidateLifetime = true,
@@ -48,15 +52,13 @@ namespace RedeSocial.Infra.Ioc {
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<IAuthentication, AuthenticateService>();
-            services.AddScoped<IUserService, UserService>();
-            services.AddScoped<IPostsService, PostsService>();
-            services.AddScoped<IPhostPhotosService, PhostPhotosService>();
-            services.AddScoped<ICommentsService, CommentsService>();
-            services.AddScoped<ILikesService, LikesService>();
-            services.AddScoped<IFollowersService, FollowersService>();
             services.AddAutoMapper(typeof(DTOMappingProfile));
 
+
+            var myhandlers = AppDomain.CurrentDomain.Load("RedeSocial.Application");
+            services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(myhandlers));
+
             return services;
-        } 
+        }
     }
 }

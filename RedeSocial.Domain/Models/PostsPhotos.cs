@@ -1,8 +1,10 @@
 ﻿
 using System.ComponentModel.DataAnnotations;
 
-namespace RedeSocial.Domain.Models {
-    public class PostsPhotos {
+namespace RedeSocial.Domain.Models
+{
+    public class PostsPhotos
+    {
         public int PostsPhotosId { get; set; }
 
         [Required]

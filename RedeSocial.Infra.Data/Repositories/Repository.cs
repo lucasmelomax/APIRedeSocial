@@ -7,7 +7,7 @@ namespace RedeSocial.Infra.Data.Repositories
 {
     public class Repository<T> : IRepository<T> where T : class
     {
-    
+
         private readonly RedeSocialContext _context;
 
         private readonly DbSet<T> _dbSet;
@@ -20,24 +20,25 @@ namespace RedeSocial.Infra.Data.Repositories
         {
             return _dbSet.AsQueryable();
         }
-        public async Task<T?> GetById(int id)
+        public async Task<T?> GetById(int id, CancellationToken? ct)
         {
             return await _dbSet.FindAsync(id);
         }
-        public async Task<T?> Create(T entity)
+        public async Task<T?> Create(T entity, CancellationToken? ct)
         {
             await _dbSet.AddAsync(entity);
             return entity;
         }
-        public async Task<T?> Update(int id, T entity) {
+        public async Task<T?> Update(int id, T entity, CancellationToken? ct)
+        {
             var update = await _dbSet.FindAsync(id);
             _dbSet.Update(entity);
             return entity;
         }
-        public async Task DeleteById(int id)
+        public async Task DeleteById(int id, CancellationToken? ct)
         {
             var deletado = await _dbSet.FindAsync(id);
-            if(deletado != null) _dbSet.Remove(deletado);
+            if (deletado != null) _dbSet.Remove(deletado);
         }
 
     }

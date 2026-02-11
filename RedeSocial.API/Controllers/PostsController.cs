@@ -1,91 +1,78 @@
 ﻿
+using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using RedeSocial.API.Extensions;
-using RedeSocial.API.Models;
 using RedeSocial.Application.DTOs;
-using RedeSocial.Application.Interfaces;
-using RedeSocial.Domain.Pagination;
+using RedeSocial.Application.Posts.Commands.CreatePosts;
+using RedeSocial.Application.Posts.Commands.DeletePosts;
+using RedeSocial.Application.Posts.Commands.UpdatePosts;
+using RedeSocial.Application.Posts.Queries.GetPosts;
+using RedeSocial.Application.Posts.Queries.GetPostsById;
+using RedeSocial.Application.Posts.Queries.GetPostsByUser;
 
-namespace RedeSocial.API.Controllers {
+namespace RedeSocial.API.Controllers
+{
     [Route("api/[controller]")]
     [ApiController]
-    public class PostsController : ControllerBase {
-
-        private readonly IPostsService _service;
-        public PostsController(IPostsService service) {
-            _service = service;
+    [Authorize]
+    public class PostsController : ControllerBase
+    {
+        private readonly IMediator _mediator;
+        public PostsController(IMediator mediator)
+        {
+            _mediator = mediator;
         }
 
         [HttpGet]
-        public async Task<ActionResult<PagedList<PostsResponseDTO>>> Get([FromQuery] PagedParams pagedParams) {
-            var postsPaged = await _service.GetAll(pagedParams);
+        public async Task<ActionResult<IEnumerable<PostsResponseDTO>>> GetAll(CancellationToken ct)
+        {
+            var posts = await _mediator.Send(new GetPostsQuery(), ct);
 
-            Response.AddPaginationHeader(new PaginationHeader(
-                postsPaged.CurrentPage,
-                postsPaged.PageSize,
-                postsPaged.TotalCount,
-                postsPaged.TotalPages
-            ));
-
-            return Ok(postsPaged);
+            return Ok(posts);
         }
 
-        [HttpGet("PostsByUser")]
-        public async Task<ActionResult<PagedList<PostsResponseDTO>>> Get( int id, [FromQuery] PagedParams pagedParams) {
-            var postsPaged = await _service.GetAllPostsByUser(id, pagedParams);
+        [HttpGet("PostsByUser/{id:int}")]
+        public async Task<ActionResult<IEnumerable<PostsResponseDTO>>> GetPostsByUser(int id, CancellationToken ct)
+        {
+            var posts = await _mediator.Send(new GetPostsByUserQuery(id), ct);
 
-            if (postsPaged.Count() == 0) {
-                return NotFound("Esse usuario nao tem nenhum post.");
-            }
-
-            Response.AddPaginationHeader(new PaginationHeader(
-                postsPaged.CurrentPage,
-                postsPaged.PageSize,
-                postsPaged.TotalCount,
-                postsPaged.TotalPages
-            ));
-
-            return Ok(postsPaged);
+            return Ok(posts);
         }
 
         [HttpGet("{id:int}", Name = "ObterPost")]
-        public async Task<ActionResult<PostsResponseDTO>> Get(int id) {
-            var post = await _service.GetById(id);
+        public async Task<ActionResult<PostsResponseDTO>> GetById(int id, CancellationToken ct)
+        {
 
-            if (post == null) {
-                return NotFound("Esse post nao existe.");
-            }
+            var post = await _mediator.Send(new GetPostsByIdQuery(id), ct);
+
             return Ok(post);
         }
 
         [HttpPost]
-        public async Task<ActionResult<PostsResponseDTO>> Post(PostsDTO postsDTO) {
-            if (postsDTO == null) {
-                return NotFound("Esse post nao existe.");
-            }
+        public async Task<ActionResult<PostsResponseDTO>> Post(CreatePostsCommand command, CancellationToken ct)
+        {
 
-            var post = await _service.Create(postsDTO);
+            var post = await _mediator.Send(command, ct);
 
-            return new CreatedAtRouteResult("ObterPost", new { id = post.UsersId }, post);
+            return new CreatedAtRouteResult("ObterPost", new { id = post.PostsId }, post);
         }
 
         [HttpPut("{id:int}")]
-        public async Task<ActionResult<PostsResponseDTO>> Put(int id, [FromBody] PostsDTO postsDTO) {
-            if (postsDTO == null) {
-                return NotFound("Esse post nao existe.");
-            }
+        public async Task<ActionResult<PostsResponseDTO>> Put(int id, PostsDTO postsDTO, CancellationToken ct)
+        {
 
-            var post = await _service.Put(id, postsDTO);
+            var post = await _mediator.Send(new UpdatePostsCommand(id, postsDTO), ct);
 
-            return new CreatedAtRouteResult("ObterPost", new { id = post.UsersId }, post);
+            return Ok(post);
         }
 
         [HttpDelete("{id:int}")]
-        public async Task<ActionResult> Delete(int id) {
+        public async Task<ActionResult> Delete([FromRoute] DeletePostsCommand command, CancellationToken ct)
+        {
 
-            await _service.Delete(id);
+            await _mediator.Send(command, ct);
 
-            return Ok("Usuario de id = " +id+ " excluido!");
+            return NoContent();
         }
 
     }

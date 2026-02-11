@@ -10,24 +10,6 @@
         "tags": [
           "Comments"
         ],
-        "parameters": [
-          {
-            "name": "PageNumber",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          },
-          {
-            "name": "PageSize",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -68,22 +50,22 @@
           "content": {
             "application/json-patch+json": {
               "schema": {
-                "$ref": "#/components/schemas/CommentsDTO"
+                "$ref": "#/components/schemas/CreateCommentsDTO"
               }
             },
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/CommentsDTO"
+                "$ref": "#/components/schemas/CreateCommentsDTO"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/CommentsDTO"
+                "$ref": "#/components/schemas/CreateCommentsDTO"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/CommentsDTO"
+                "$ref": "#/components/schemas/CreateCommentsDTO"
               }
             }
           }
@@ -112,7 +94,7 @@
         }
       }
     },
-    "/api/Comments/CommentsByPost": {
+    "/api/Comments/CommentsByPost/{id}": {
       "get": {
         "tags": [
           "Comments"
@@ -120,23 +102,8 @@
         "parameters": [
           {
             "name": "id",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          },
-          {
-            "name": "PageNumber",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          },
-          {
-            "name": "PageSize",
-            "in": "query",
+            "in": "path",
+            "required": true,
             "schema": {
               "type": "integer",
               "format": "int32"
@@ -238,241 +205,11 @@
         }
       }
     },
-    "/api/Followers": {
-      "get": {
-        "tags": [
-          "Followers"
-        ],
-        "parameters": [
-          {
-            "name": "PageNumber",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          },
-          {
-            "name": "PageSize",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/FollowersDTO"
-                  }
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/FollowersDTO"
-                  }
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/FollowersDTO"
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "post": {
-        "tags": [
-          "Followers"
-        ],
-        "requestBody": {
-          "content": {
-            "application/json-patch+json": {
-              "schema": {
-                "$ref": "#/components/schemas/FollowersDTO"
-              }
-            },
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/FollowersDTO"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/FollowersDTO"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/FollowersDTO"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/FollowersDTO"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FollowersDTO"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FollowersDTO"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/Followers/FollowersByUser": {
-      "get": {
-        "tags": [
-          "Followers"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          },
-          {
-            "name": "PageNumber",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          },
-          {
-            "name": "PageSize",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/FollowersDTO"
-                  }
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/FollowersDTO"
-                  }
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/FollowersDTO"
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/Followers/{id}": {
-      "get": {
-        "tags": [
-          "Followers"
-        ],
-        "operationId": "ObterFollower",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/FollowersDTO"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FollowersDTO"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FollowersDTO"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/api/Likes": {
       "get": {
         "tags": [
           "Likes"
         ],
-        "parameters": [
-          {
-            "name": "PageNumber",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          },
-          {
-            "name": "PageSize",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -557,7 +294,7 @@
         }
       }
     },
-    "/api/Likes/LikesByPost": {
+    "/api/Likes/LikesByPost/{id}": {
       "get": {
         "tags": [
           "Likes"
@@ -565,23 +302,8 @@
         "parameters": [
           {
             "name": "id",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          },
-          {
-            "name": "PageNumber",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          },
-          {
-            "name": "PageSize",
-            "in": "query",
+            "in": "path",
+            "required": true,
             "schema": {
               "type": "integer",
               "format": "int32"
@@ -688,24 +410,6 @@
         "tags": [
           "Posts"
         ],
-        "parameters": [
-          {
-            "name": "PageNumber",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          },
-          {
-            "name": "PageSize",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -746,22 +450,22 @@
           "content": {
             "application/json-patch+json": {
               "schema": {
-                "$ref": "#/components/schemas/PostsDTO"
+                "$ref": "#/components/schemas/CreatePostsCommand"
               }
             },
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/PostsDTO"
+                "$ref": "#/components/schemas/CreatePostsCommand"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/PostsDTO"
+                "$ref": "#/components/schemas/CreatePostsCommand"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/PostsDTO"
+                "$ref": "#/components/schemas/CreatePostsCommand"
               }
             }
           }
@@ -790,7 +494,7 @@
         }
       }
     },
-    "/api/Posts/PostsByUser": {
+    "/api/Posts/PostsByUser/{id}": {
       "get": {
         "tags": [
           "Posts"
@@ -798,23 +502,8 @@
         "parameters": [
           {
             "name": "id",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          },
-          {
-            "name": "PageNumber",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          },
-          {
-            "name": "PageSize",
-            "in": "query",
+            "in": "path",
+            "required": true,
             "schema": {
               "type": "integer",
               "format": "int32"
@@ -983,24 +672,6 @@
         "tags": [
           "PostsPhotos"
         ],
-        "parameters": [
-          {
-            "name": "PageNumber",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          },
-          {
-            "name": "PageSize",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -1095,22 +766,6 @@
             "name": "id",
             "in": "path",
             "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          },
-          {
-            "name": "PageNumber",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          },
-          {
-            "name": "PageSize",
-            "in": "query",
             "schema": {
               "type": "integer",
               "format": "int32"
@@ -1217,24 +872,6 @@
         "tags": [
           "Users"
         ],
-        "parameters": [
-          {
-            "name": "PageNumber",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          },
-          {
-            "name": "PageSize",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -1281,22 +918,6 @@
             "schema": {
               "pattern": "^[A-Za-z]*$",
               "type": "string"
-            }
-          },
-          {
-            "name": "PageNumber",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          },
-          {
-            "name": "PageSize",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
             }
           }
         ],
@@ -1346,22 +967,6 @@
             "schema": {
               "type": "string"
             }
-          },
-          {
-            "name": "PageNumber",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          },
-          {
-            "name": "PageSize",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
           }
         ],
         "responses": {
@@ -1402,7 +1007,6 @@
         "tags": [
           "Users"
         ],
-        "operationId": "ObterUser",
         "parameters": [
           {
             "name": "id",
@@ -1447,8 +1051,7 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "integer",
-              "format": "int32"
+              "type": "string"
             }
           }
         ],
@@ -1456,22 +1059,22 @@
           "content": {
             "application/json-patch+json": {
               "schema": {
-                "$ref": "#/components/schemas/UserPutDTO"
+                "$ref": "#/components/schemas/UpdateUserCommand"
               }
             },
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/UserPutDTO"
+                "$ref": "#/components/schemas/UpdateUserCommand"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/UserPutDTO"
+                "$ref": "#/components/schemas/UpdateUserCommand"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/UserPutDTO"
+                "$ref": "#/components/schemas/UpdateUserCommand"
               }
             }
           }
@@ -1590,24 +1193,7 @@
         ],
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/UserResponseDTO"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/UserResponseDTO"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/UserResponseDTO"
-                }
-              }
-            }
+            "description": "OK"
           }
         }
       }
@@ -1647,17 +1233,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/UserToken"
+                  "$ref": "#/components/schemas/UserTokenDTO"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/UserToken"
+                  "$ref": "#/components/schemas/UserTokenDTO"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/UserToken"
+                  "$ref": "#/components/schemas/UserTokenDTO"
                 }
               }
             }
@@ -1674,22 +1260,22 @@
           "content": {
             "application/json-patch+json": {
               "schema": {
-                "$ref": "#/components/schemas/LoginModel"
+                "$ref": "#/components/schemas/LoginDTO"
               }
             },
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/LoginModel"
+                "$ref": "#/components/schemas/LoginDTO"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/LoginModel"
+                "$ref": "#/components/schemas/LoginDTO"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/LoginModel"
+                "$ref": "#/components/schemas/LoginDTO"
               }
             }
           }
@@ -1700,17 +1286,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/UserToken"
+                  "$ref": "#/components/schemas/UserTokenDTO"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/UserToken"
+                  "$ref": "#/components/schemas/UserTokenDTO"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/UserToken"
+                  "$ref": "#/components/schemas/UserTokenDTO"
                 }
               }
             }
@@ -1747,16 +1333,25 @@
         },
         "additionalProperties": false
       },
-      "FollowersDTO": {
+      "CreateCommentsDTO": {
         "type": "object",
         "properties": {
-          "followersId": {
-            "type": "integer",
-            "format": "int32"
+          "comment": {
+            "type": "string",
+            "nullable": true
           },
-          "usersId": {
+          "postsId": {
             "type": "integer",
             "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreatePostsCommand": {
+        "type": "object",
+        "properties": {
+          "postsDTO": {
+            "$ref": "#/components/schemas/PostsDTO"
           }
         },
         "additionalProperties": false
@@ -1783,7 +1378,7 @@
         },
         "additionalProperties": false
       },
-      "LoginModel": {
+      "LoginDTO": {
         "required": [
           "email",
           "password"
@@ -1842,6 +1437,7 @@
       },
       "PostsDTO": {
         "required": [
+          "postsId",
           "textContent"
         ],
         "type": "object",
@@ -1913,50 +1509,15 @@
         },
         "additionalProperties": false
       },
-      "UserPutDTO": {
-        "required": [
-          "bio",
-          "email",
-          "imageURL",
-          "name",
-          "password",
-          "username"
-        ],
+      "UpdateUserCommand": {
         "type": "object",
         "properties": {
-          "usersId": {
+          "id": {
             "type": "integer",
             "format": "int32"
           },
-          "bio": {
-            "maxLength": 150,
-            "minLength": 0,
-            "type": "string"
-          },
-          "name": {
-            "maxLength": 80,
-            "minLength": 0,
-            "type": "string"
-          },
-          "email": {
-            "maxLength": 80,
-            "minLength": 0,
-            "type": "string"
-          },
-          "password": {
-            "maxLength": 50,
-            "minLength": 0,
-            "type": "string"
-          },
-          "imageURL": {
-            "maxLength": 300,
-            "minLength": 0,
-            "type": "string"
-          },
-          "username": {
-            "maxLength": 50,
-            "minLength": 0,
-            "type": "string"
+          "usersDTO": {
+            "$ref": "#/components/schemas/UsersDTO"
           }
         },
         "additionalProperties": false
@@ -1998,7 +1559,7 @@
         },
         "additionalProperties": false
       },
-      "UserToken": {
+      "UserTokenDTO": {
         "type": "object",
         "properties": {
           "token": {

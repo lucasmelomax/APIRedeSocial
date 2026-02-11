@@ -1,6 +1,8 @@
 ﻿
-namespace RedeSocial.Application.DTOs {
-    public class UserResponseDTO {
+namespace RedeSocial.Application.DTOs
+{
+    public class UserResponseDTO
+    {
         public int UsersId { get; set; }
         public bool Active { get; set; }
         public string? Bio { get; set; }

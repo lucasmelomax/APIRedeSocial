@@ -2,8 +2,11 @@
 using System.ComponentModel.DataAnnotations;
 using RedeSocial.Domain.Models;
 
-namespace RedeSocial.Application.DTOs {
-    public class PostsDTO {
+namespace RedeSocial.Application.DTOs
+{
+    public class PostsDTO
+    {
+        [Required]
         public int PostsId { get; set; }
 
         [Required]

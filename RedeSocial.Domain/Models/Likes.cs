@@ -1,6 +1,8 @@
 ﻿
-namespace RedeSocial.Domain.Models {
-    public class Likes {
+namespace RedeSocial.Domain.Models
+{
+    public class Likes
+    {
         public int LikesId { get; set; }
         public DateTime CreatedAt { get; set; }
         public int UsersId { get; set; }

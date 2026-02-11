@@ -1,6 +1,8 @@
 ﻿
-namespace RedeSocial.Domain.Models {
-    public class Comments {
+namespace RedeSocial.Domain.Models
+{
+    public class Comments
+    {
 
         public int CommentsId { get; set; }
         public string? Comment { get; set; }

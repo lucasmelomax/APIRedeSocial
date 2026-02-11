@@ -1,81 +1,72 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
+﻿
+using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using RedeSocial.API.Extensions;
-using RedeSocial.API.Models;
-using RedeSocial.Application.DTOs;
-using RedeSocial.Application.Interfaces;
-using RedeSocial.Domain.Pagination;
+using RedeSocial.Application.Comments.Commands.CreateComments;
+using RedeSocial.Application.Comments.Commands.DeleteComments;
+using RedeSocial.Application.Comments.Queries.GetComments;
+using RedeSocial.Application.Comments.Queries.GetCommentsById;
+using RedeSocial.Application.Comments.Queries.GetCommentsByPost;
+using RedeSocial.Application.DTOs.Comments;
 
-namespace RedeSocial.API.Controllers {
+namespace RedeSocial.API.Controllers
+{
     [Route("api/[controller]")]
     [ApiController]
-    public class CommentsController : ControllerBase {
+    [Authorize]
+    public class CommentsController : ControllerBase
+    {
 
-        private readonly ICommentsService _service;
-
-        public CommentsController(ICommentsService commentsService) {
-            _service = commentsService;
+        private readonly IMediator _mediator;
+        public CommentsController(IMediator mediator)
+        {
+            _mediator = mediator;
         }
 
         [HttpGet]
-        [Authorize]
-        public async Task<ActionResult<PagedList<CommentsDTO>>> Get([FromQuery] PagedParams pagedParams) {
-            var commentPaged = await _service.GetAll(pagedParams);
+        public async Task<ActionResult<IEnumerable<CommentsDTO>>> GetAll(CancellationToken ct)
+        {
+            var comments = await _mediator.Send(new GetCommentsQuery(), ct);
 
-            Response.AddPaginationHeader(new PaginationHeader(
-                commentPaged.CurrentPage,
-                commentPaged.PageSize,
-                commentPaged.TotalCount,
-                commentPaged.TotalPages
-            ));
-
-            return Ok(commentPaged);
+            return Ok(comments);
         }
 
-        [HttpGet("CommentsByPost")]
-        public async Task<ActionResult<PagedList<CommentsDTO>>> Get(int id, [FromQuery] PagedParams pagedParams) {
-            var commentPaged = await _service.GetAllByPost(id, pagedParams);
+        [HttpGet("CommentsByPost/{id:int}")]
+        public async Task<ActionResult<IEnumerable<CommentsDTO>>> GetAllByPost(int id,CancellationToken ct)
+        {
 
-            if (commentPaged.Count() == 0) {
-                return NotFound("Esse post nao tem nenhum comentario.");
-            }
+            var comments= await _mediator.Send(new GetCommentsByPostQuery(id), ct);
 
-            Response.AddPaginationHeader(new PaginationHeader(
-                commentPaged.CurrentPage,
-                commentPaged.PageSize,
-                commentPaged.TotalCount,
-                commentPaged.TotalPages
-            ));
-
-            return Ok(commentPaged);
+            return Ok(comments);
         }
 
         [HttpGet("{id:int}", Name = "ObterComment")]
-        public async Task<ActionResult<CommentsDTO>> Get(int id) {
-            var post = await _service.GetById(id);
+        public async Task<ActionResult<CommentsDTO>> GetById(int id, CancellationToken ct)
+        {
 
-            if (post == null) {
-                return NotFound("Esse cometario nao existe.");
-            }
+            var post = await _mediator.Send(new GetCommentsByIdQuery(id), ct);
+
+            if (post == null) return NotFound("Esse cometario nao existe.");
+
             return Ok(post);
         }
 
         [HttpPost]
-        public async Task<ActionResult<CommentsDTO>> Post(CommentsDTO commentsDTO) {
-            if (commentsDTO == null) {
-                return NotFound("Esse comentario nao é valido.");
-            }
+        public async Task<ActionResult<CommentsDTO>> Post(CreateCommentsDTO commentsDTO, CancellationToken ct)
+        {
 
-            var comments = await _service.Create(commentsDTO);
+            var comments = await _mediator.Send(new CreateCommentsCommand(commentsDTO), ct);
 
-            return new CreatedAtRouteResult("ObterComment", new { id = comments.UsersId }, comments);
+            if (comments == null) return BadRequest("Esse comentario nao existe.");
+
+            return new CreatedAtRouteResult("ObterComment", new { id = comments.CommentsId }, comments);
         }
 
         [HttpDelete("{id:int}")]
-        public async Task<ActionResult> Delete(int id) {
+        public async Task<ActionResult> Delete(int id, CancellationToken ct)
+        {
 
-            await _service.Delete(id);
+            await _mediator.Send(new DeleteCommentsCommand(id), ct);
 
             return Ok("Comment de id = " + id + " excluido!");
         }

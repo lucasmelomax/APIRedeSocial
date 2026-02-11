@@ -1,67 +1,49 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using RedeSocial.API.Models;
 using RedeSocial.Application.DTOs;
-using RedeSocial.Application.Interfaces;
-using RedeSocial.Application.Services;
+using RedeSocial.Application.User.Commands.CreateUser;
+using RedeSocial.Application.User.Commands.LoginUser;
 using RedeSocial.Domain.Account;
 
-namespace RedeSocial.API.Controllers {
+namespace RedeSocial.API.Controllers
+{
     [Route("api/[controller]")]
     [ApiController]
-    public class UserTokenController : ControllerBase {
+    public class UserTokenController : ControllerBase
+    {
 
         private readonly IAuthentication _service;
-        private readonly IUserService _userService;
+        private readonly IMediator _mediator;
 
-        public UserTokenController(IAuthentication service, IUserService userService) {
+        public UserTokenController(IAuthentication service, IMediator mediator)
+        {
             _service = service;
-            _userService = userService;
+            _mediator = mediator;
         }
 
         [HttpPost("register")]
 
-        public async Task<ActionResult<UserToken>> Incluir(UsersDTO usersDTO) {
-            if (usersDTO == null) return BadRequest("Dados invalidos.");
+        public async Task<ActionResult<UserTokenDTO>> Incluir(UsersDTO usersDTO, CancellationToken ct)
+        {
 
-            var emailExist = await _service.UserExists(usersDTO.Email);
+            var result = await _mediator.Send(new CreateUserCommand(usersDTO), ct);
 
-            if (emailExist) {
-                return BadRequest("Este email ja possui um cadastro.");
-            }
-
-            var usuario = await _userService.Create(usersDTO);
-
-            if (usuario == null) return BadRequest("Ocorreu um erro ao cadastrar.");
-
-            var token = _service.GenerateToken(usuario.UsersId, usuario.Email);
-
-            return new UserToken {
-                Token = token,
-            };
+            return Ok(result);
         }
-
 
         [HttpPost("login")]
 
-        public async Task<ActionResult<UserToken>> Selecionar(LoginModel loginModel) {
-            var existe = await _service.UserExists(loginModel.Email);
-            if (!existe) {
-                return Unauthorized("Usuario nao existe.");
-            }
+        public async Task<ActionResult<UserTokenDTO>> Selecionar(LoginDTO loginDTO, CancellationToken ct)
+        {
 
-            var result = await _service.AuthenticationAsync(loginModel.Email, loginModel.Password);
-            if (!result) {
-                return Unauthorized("Usuario ou senha invalidos.");
-            }
+            if (loginDTO is null)
+                return BadRequest("Dados inválidos.");
 
-            var usuario = await _service.GetUserByEmail(loginModel.Email);
+            var token = await _mediator.Send(
+                new LoginUserCommand(loginDTO), ct);
 
-            var token = _service.GenerateToken(usuario.UsersId, usuario.Email);
-
-            return new UserToken {
-                Token = token,
-            };
+            return Ok(token);
 
         }
 
